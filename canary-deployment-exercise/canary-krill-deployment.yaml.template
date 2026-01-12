@@ -1,0 +1,30 @@
+# Template para Canary Deployment
+# Preencha este arquivo com sua solução
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: # TODO: Adicione o nome do deployment
+  namespace: # TODO: Adicione o namespace
+spec:
+  replicas: # TODO: Calcule o número correto de replicas para 40% de tráfego
+  selector:
+    matchLabels:
+      # TODO: Adicione os labels apropriados
+  template:
+    metadata:
+      labels:
+        # TODO: Adicione os labels apropriados
+    spec:
+      containers:
+      - name: krill-container
+        image: # TODO: Adicione a imagem correta (v2.0)
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
